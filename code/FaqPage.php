@@ -22,7 +22,7 @@ class FaqPage extends Page {
     $orderableComponent = class_exists('GridFieldOrderableRows') ? new GridFieldOrderableRows('SortOrder') : new GridFieldSortableRows('SortOrder');
 
     $configTags = GridFieldConfig_RelationEditor::create();
-    //$configTags->getComponentByType('GridFieldPaginator')->setItemsPerPage(10);
+    $configTags->getComponentByType('GridFieldPaginator')->setItemsPerPage(100);
     $configTags->addComponent($orderableComponent);
     $configTags->getComponentByType('GridFieldAddNewButton')->setButtonName('Add a faq section');
     $configTags->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
@@ -37,7 +37,7 @@ class FaqPage extends Page {
     $fields->addFieldToTab('Root.FaqSection', $faqSectionsField);
 
     $config = GridFieldConfig_RelationEditor::create();
-    //$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(10);
+    $config->getComponentByType('GridFieldPaginator')->setItemsPerPage(100);
     $config->addComponent($orderableComponent);
     $config->getComponentByType('GridFieldAddNewButton')->setButtonName('Add a faq tag');
     $config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
@@ -54,7 +54,7 @@ class FaqPage extends Page {
 
     if(FaqSection::get()->count() > 0 && FaqTag::get()->count() > 0){
       $config = GridFieldConfig_RelationEditor::create();
-      //$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(10);
+      $config->getComponentByType('GridFieldPaginator')->setItemsPerPage(100);
       $config->addComponent($orderableComponent);
       $config->addComponent(new GridFieldDeleteAction());
       $config->getComponentByType('GridFieldAddNewButton')->setButtonName('Add a faq');
