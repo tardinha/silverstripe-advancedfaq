@@ -56,6 +56,7 @@ class FaqPage extends Page {
       $config = GridFieldConfig_RelationEditor::create();
       //$config->getComponentByType('GridFieldPaginator')->setItemsPerPage(10);
       $config->addComponent($orderableComponent);
+      $config->addComponent(new GridFieldDeleteAction());
       $config->getComponentByType('GridFieldAddNewButton')->setButtonName('Add a faq');
       $config->getComponentByType('GridFieldDataColumns')->setDisplayFields(array(
           'Question' => 'Question'

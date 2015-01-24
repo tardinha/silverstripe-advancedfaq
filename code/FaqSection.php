@@ -30,6 +30,14 @@ class FaqSection extends DataObject {
     'Title'
   );
 
+  protected function onBeforeWrite() {
+    if (!$this->SortOrder) {
+      $this->SortOrder = FaqSection::get()->max('SortOrder') + 1;
+    }
+
+    parent::onBeforeWrite();
+  }
+
   /*
 	 * Modify the default fields shown to the user
 	 */

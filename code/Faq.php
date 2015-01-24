@@ -35,6 +35,14 @@ class Faq extends DataObject {
     'Question', 'Answer'
   );
 
+  protected function onBeforeWrite() {
+    if (!$this->SortOrder) {
+      $this->SortOrder = Faq::get()->max('SortOrder') + 1;
+    }
+
+    parent::onBeforeWrite();
+  }
+
   /*
 	 * Modify the default fields shown to the user
 	 */
